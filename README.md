@@ -1,24 +1,21 @@
-Refer to https://kineticstoolkit.uqam.ca/doc/extensions.html to know how to use this template repository to build your own extension, then delete this line.
+# kineticstoolkit_emg
 
+Functions to open EMG data into Kinetics Toolkit (experimental)
 
+This extension provides the function `read_delsys_csv` that reads a CSV file exported from Delsys Trigno converter and loads it as a bunch of TimeSeries.
 
-# kineticstoolkit_EXTENSIONNAME
-
-Please write a one-line description of your extension.
+This is very experimental at the moment and the function may disappear in a near future.
 
 
 ## Installing
 
 ```
-pip install git+https://github.com/USERNAME/kineticstoolkit_EXTENSIONNAME
+pip install git+https://github.com/felixchenier/kineticstoolkit_emg
 ```
 
 ## Uninstalling
 
 ```
-pip uninstall kineticstoolkit_EXTENSIONNAME
+pip uninstall kineticstoolkit_emg
 ```
 
-## How to use this extension
-
-Please write code examples and tutorials to teach others how to use your extension.

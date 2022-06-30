@@ -38,18 +38,11 @@ if os.path.dirname(__file__) not in sys.path:
 ktk.import_extensions()
 
 
-def test_function1():
-    """Test function 1. Placeholder. Delete me."""
-    assert ktk.ext.EXTENSIONNAME.function1() == "I am function1"
-
-
-def test_function2():
-    """Test function 2. Placeholder. Delete me."""
-    assert ktk.ext.EXTENSIONNAME.function2() == "I am function2"
+# No test for the moment.
 
 
 if __name__ == "__main__":
-    # You can either run this file directly, or run 'pytest test_extension' in
+    # You can either run this file directly, or run 'pytest test_extension.py' in
     # a terminal.
     import pytest
 
