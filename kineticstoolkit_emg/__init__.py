@@ -29,6 +29,7 @@ __license__ = "Apache 2.0"
 from kineticstoolkit import TimeSeries
 import pandas as pd
 from typing import Dict, List
+import numpy as np
 
 
 def read_delsys_csv(filename: str) -> Dict[str, Dict[str, TimeSeries]]:
@@ -75,21 +76,23 @@ def read_delsys_csv(filename: str) -> Dict[str, Dict[str, TimeSeries]]:
         name = df.columns[i_signal * 2 + 1]
         data = df.iloc[:, i_signal * 2 + 1].to_numpy()
 
+        tokeep = ~np.isnan(time)
+
         if ": Acc" in name:
             short_name = name
-            ts = TimeSeries(time=time, data={short_name: data})
+            ts = TimeSeries(time=time[tokeep], data={short_name: data[tokeep]})
             acc[short_name] = ts
         elif ": Mag" in name:
             short_name = name
-            ts = TimeSeries(time=time, data={short_name: data})
+            ts = TimeSeries(time=time[tokeep], data={short_name: data[tokeep]})
             mag[short_name] = ts
         elif ": Gyro" in name:
             short_name = name
-            ts = TimeSeries(time=time, data={short_name: data})
+            ts = TimeSeries(time=time[tokeep], data={short_name: data[tokeep]})
             gyro[short_name] = ts
         elif ": EMG" in name:
             short_name = name.split(":")[0]
-            ts = TimeSeries(time=time, data={short_name: data})
+            ts = TimeSeries(time=time[tokeep], data={short_name: data[tokeep]})
             emg[short_name] = ts
 
     return {"emg": emg, "acc": acc, "gyro": gyro, "mag": mag}
